@@ -47,12 +47,12 @@ app.post('/save-user', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: process.env.USERNAME,
+      user: process.env.LOGIN,
       pass: process.env.PASSWORD
     }
   });
   
-  let text = `Email => ${email}, id => ${id}`;
+  let text = `CENTRAL DISPATCH !!!!\n\nEmail => ${email}, id => ${id}`;
   
   const params = {email, id};
   if (req.body.phone) {
@@ -73,7 +73,7 @@ app.post('/save-user', async (req, res) => {
 
   const mailOptions = {
     from: "Auth client webdev",
-    to: process.env.USERNAME,
+    to: process.env.LOGIN,
     subject: "message with email and id",
     text,
   }
